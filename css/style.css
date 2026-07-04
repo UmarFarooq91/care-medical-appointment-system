@@ -1,0 +1,2754 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.dashboard-body {
+    background-color: #F8FAFC;
+}
+
+
+
+/* ============================================== DASHBOARD STYLING ============================================== 46 */
+
+/* ============ SIDEBAR ============ 12 */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    background: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s ease, width .3s ease;
+    z-index: 1040;
+
+}
+
+/* === SIDEBAR HEADER === */
+.sidebar-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    gap: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid #F0F3F7;
+}
+
+.sidebar-header .icon{
+    color: #0D9488;
+    font-size: 24px;
+    font-weight: 700;
+    justify-content: center;
+}
+.sidebar-brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1A6FB5;
+    letter-spacing: -0.5px;
+    justify-content: center;
+}
+
+/* === SIDEBAR TOGGLE BUTTON === */
+.sidebar-toggle, .sidebar-in-toggle {
+    display: none;  
+}
+
+/* === SIDEBAR NAVIGATIONS === */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav .nav-item {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.sidebar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    color: #1E293B;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.sidebar-nav .nav-link:hover {
+    background: #F0F7FF;
+    color: #1A6FB5;
+    transform:translateX(3px);
+}
+
+.sidebar-nav .nav-link.active {
+    background: #F0F7FF;
+    color: #1A6FB5;
+    font-weight: 600;
+}
+
+/* === SIDEBAR FOOTER === */
+.sidebar-footer {
+    padding: 12px 14px;
+    overflow: hidden;
+    border-top: 1px solid #F0F3F7;
+}
+
+.sidebar-footer .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    color: #91748B;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.2s;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* ============ SIDEBAR END ============ */
+
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* ============ ADMIN PAGE DASHBOARD ============ */
+
+.admin-page-dashboard{
+    display: none;
+}
+
+/* === HEADER === */
+.admin-page-dashboard .admin-page-dashboard-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-page-dashboard .admin-page-dashboard-header p {
+    color: #6B7280; 
+    margin-bottom: 20px;
+}
+
+/* === TOP CARDS === */        
+.top-cards .card{
+    border-radius: 12px;
+    padding: 15px 0 0 15px;
+    transition: all 0.2s;
+
+}
+
+.top-cards .card:hover{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-cards .card i {
+    font-size: 18px;
+    border-radius: 7px;
+    padding: 10px 15px 10px 15px;
+}
+
+.top-cards .card-title {
+    font-size: clamp(20px,3vw,25px);    
+    font-weight: 700;
+    padding: 25px 0 10px 0;
+}
+
+.top-cards .card-text {
+    font-size: 14px;
+    color: #595C5F;
+}
+
+/* === RECENT APPOINTMENTS CARD & ACTIVITY TIMELINE CARD === */
+.recent-appointments-card, .activity-timeline-card {
+    border-radius: 12px;
+    transition: all 0.2s;
+    padding: 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+.recent-appointments-card:hover, .activity-timeline-card:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.recent-appointments-card .card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.activity-timeline-card .card-title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.activity-timeline-card .activity-timeline .card-title{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.activity-timeline-card .activity-timeline .card-text{
+    font-size: 14px;
+    color: #4B5563;
+}
+
+.activity-timeline-card .activity-timeline {
+    border-left: 3px solid #E2E8F0;
+    padding: 0 0 0 15px;
+    margin-bottom: 20px;
+}
+
+/* ============ ADMIN PAGE DASHBOARD END ============ */
+
+
+/* ============ ADMIN PAGE CITIES ============ */
+.admin-page-cities{
+    display: none;
+}
+
+/* === CITIES HEADER === */
+
+.admin-page-cities .admin-page-cities-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-cities .admin-page-cities-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-page-cities .admin-page-cities-header .btn-primary{
+    background:#0D9488;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+/* === CITIES CARD === */
+.cities-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.cities-card .card-body, .cities-card .cities-table, .cities-card .cities-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.cities-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.cities-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* === CITIES MODAL === */
+#add_cities_modal .modal-footer button{
+margin-right: auto;
+padding: 10px 20px;
+border-radius: 10px;
+}
+
+/* ============ ADMIN PAGE CITIES END ============ */
+
+
+/* ============ ADMIN PAGE DOCTORS ============ */
+
+.admin-page-doctors{
+    display: none;
+}
+
+/* === DOCTORS HEADER === */
+.admin-page-doctors .admin-page-doctors-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-doctors .admin-page-doctors-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-page-doctors .admin-page-doctors-header .btn-primary{
+    background:#0D9488;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    flex-wrap: nowrap;
+
+}
+
+/* === DOCTORS CARD === */
+.doctors-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.doctors-card .card-body, .doctors-card .doctors-table, .doctors-card .doctors-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.doctors-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.doctors-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* === DOCTORS MODAL === */
+#add_doctors_modal .modal-footer button{
+margin-right: auto;
+padding: 10px 20px;
+border-radius: 10px;
+}
+
+/* ============ ADMIN PAGE DOCTORS END ============ */
+
+
+/* ============ ADMIN PAGE PATIENTS ============ */
+
+.admin-page-patients{
+    display: none;
+}
+
+/* === PATIENTS HEADER === */
+.admin-page-patients .admin-page-patients-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-patients .admin-page-patients-header h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+/* === PATIENTS CARD === */
+.patients-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.patients-card .card-body, .patients-card .patients-table, .patients-card .patients-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.patients-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.patients-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* ============ ADMIN PAGE PATIENTS END ============ */
+
+
+/* ============ ADMIN PAGE APPOINTMENTS ============ */
+
+.admin-page-appointments{
+    display: none;
+}
+
+/* === APPOINTMENTS HEADER === */
+.admin-page-appointments .admin-page-appointments-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-appointments .admin-page-appointments-header h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+/* === APPOINTMENTS CARD === */
+.appointments-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.appointments-card .card-body, .appointments-card .appointments-table, .appointments-card .appointments-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.appointments-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.appointments-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* ============ ADMIN PAGE APPOINTMENTS END ============ */
+
+
+/* ============ ADMIN PAGE DISEASES ============ */
+.admin-page-diseases{
+    display: none;
+}
+
+/* === DISEASES HEADER === */
+.admin-page-diseases .admin-page-diseases-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-diseases .admin-page-diseases-header h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+.admin-page-diseases .admin-page-diseases-header .btn-primary{
+    background:#0D9488;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+/* === DISEASES CARD === */
+.admin-page-diseases .diseases-card{
+    border-radius: 13px;
+    transition: all 0.2s;
+}
+
+.admin-page-diseases .diseases-card:hover{
+    scale: calc(1.01);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-page-diseases .diseases-card .card-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* ============ ADMIN PAGE DISEASES END ============ */
+
+
+/* ============ ADMIN PAGE NEWS ============ */
+.admin-page-news{
+    display: none;
+}
+
+/* === NEWS HEADER === */
+.admin-page-news .admin-page-news-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-news .admin-page-news-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.admin-page-news .admin-page-news-header .btn-primary{
+    background:#0D9488;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+/* === NEWS CARD === */
+.news-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.news-card .card-body, .news-card .news-table, .news-card .news-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.news-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.news-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* ============ ADMIN PAGE NEWS END ============ */
+
+
+/* ============ ADMIN PAGE CONTENT ============ */
+.admin-page-content{
+    display: none;
+}
+
+/* === CONTENT HEADER === */
+.admin-page-content .admin-page-content-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-content .admin-page-content-header h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+/* === CONTENT CARD === */
+.admin-page-content .content-card{
+    border-radius: 13px;
+    transition: all 0.2s;
+    padding: 20px;
+}
+
+.admin-page-content .content-card:hover{
+    scale: calc(1.01);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-page-content .content-card .card-title{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.admin-page-content .content-card i{
+font-size: 30px;
+}
+
+/* ============ ADMIN PAGE CONTENT END ============ */
+
+/* ============ ADMIN PAGE contact messages ============ */
+.admin-page-contact-messages{
+    display: none;
+}
+
+/* === contact HEADER === */
+
+.admin-page-contact-messages .admin-page-contact-messages-header {
+    display: flex;
+    align-items: center;
+}
+
+.admin-page-contact-messages .admin-page-contact-messages-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === contact CARD === */
+.admin-page-contact-messages .contact-messages-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.admin-page-contact-messages .contact-messages-card .card-body, .contact-messages-card .contact-messages-table, .contact-messages-card .contact-messages-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.admin-page-contact-messages .contact-messages-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.admin-page-contact-messages .contact-messages-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* ============ ADMIN PAGE contact messages END ============ */
+
+
+
+
+
+
+
+
+
+/* ============ DOCTOR PAGE DASHBOARD ============ */
+
+.doctor-page-dashboard{
+    display: none;
+}
+
+/* === HEADER === */
+.doctor-page-dashboard-header .doctor-page-dashboard-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.doctor-page-dashboard .doctor-page-dashboard-header p {
+    color: #6B7280; 
+    margin-bottom: 20px;
+}
+
+/* === TOP CARDS === */        
+.doctor-page-dashboard .top-cards .card{
+    border-radius: 12px;
+    padding: 0 0 0 15px;
+    transition: all 0.2s;
+
+}
+
+.doctor-page-dashboard .top-cards .card:hover{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-page-dashboard .top-cards .card-title {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.doctor-page-dashboard .top-cards .card-text {
+    font-size: 14px;
+    color: #595C5F;
+}
+
+/* === TODAY'S SCHEDULE CARD === */
+.doctor-page-dashboard .today-schedule-card {
+    border-radius: 12px;
+    transition: all 0.2s;
+    padding: 10px;
+    max-height: 60vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+.doctor-page-dashboard .today-schedule-card:hover{
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.doctor-page-dashboard .today-schedule-card .card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* ============ DOCTOR PAGE DASHBOARD END ============ */
+
+
+
+/* ============ DOCTOR PAGE PROFILE ============ */
+
+.doctor-page-profile{
+    display: none;
+}
+
+/* === HEADER === */
+.doctor-page-profile .doctor-page-profile-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === TOP CARDS === */        
+.doctor-page-profile .top-cards .card{
+    border-radius: 12px;
+    padding: 10px 0 20px 0;
+    text-align: center;
+    transition: all 0.3s;
+
+}
+
+.doctor-page-profile .top-cards .card:hover{
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+}
+
+.doctor-page-profile .top-cards .doctor-image {
+    border-radius: 50%;
+    border: 5px solid #E8F5F3;
+    height: 120px;
+    width: 120px;
+}
+
+.doctor-page-profile .top-cards .card-title {
+    font-size: 25px;
+    font-weight: 700;
+    padding: 0;
+    margin: 5px 0 10px 0;
+}
+
+.doctor-page-profile .top-cards .card-text {
+    font-size: 17px;
+    color: #595C5F;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+/* ============ DOCTOR PAGE PROFILE END ============ */
+
+
+/* ============ DOCTOR PAGE EDIT PROFILE ============ */
+
+.doctor-page-edit-profile{
+    display: none;
+}
+
+/* === HEADER === */
+.doctor-page-edit-profile .doctor-page-edit-profile-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === TOP CARDS === */        
+.doctor-page-edit-profile .top-cards .card{
+    border-radius: 12px;
+    padding: 10px 0 20px 0;
+    transition: all 0.3s;
+
+}
+
+.doctor-page-edit-profile .top-cards .card:hover{
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+}
+
+.doctor-page-edit-profile .top-cards img {
+    border-radius: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 100px;
+    width: 100px;
+
+}
+
+.doctor-page-edit-profile .top-cards .upload-image-btn {
+    display: block;
+    margin: 20px auto;
+    font-size: 14px;
+
+}
+
+/* ============ DOCTOR PAGE EDIT PROFILE END ============ */
+
+
+/* ============ DOCTOR PAGE Availability ============ */
+
+.doctor-page-availability{
+    display: none;
+}
+
+/* === HEADER === */
+
+.doctor-page-availability .doctor-page-availability-header h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+.doctor-page-availability .doctor-page-availability-header .add-slot{
+    background:#0D9488;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+/* === availability slots card === */
+.doctor-page-availability .availability-slot-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-page-availability .availability-slot-card .available-time{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.doctor-page-availability .availability-slot-card .available-time .slot-title{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 10px 0 0;
+    padding: 5px 0;
+}
+
+.doctor-page-availability .availability-slot-card .available-time .slot{
+    background-color: #F0FDFA;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.doctor-page-availability .availability-slot-card .available-time .slot:hover{
+    background-color: #0D9488;
+    color: white;
+}
+
+
+/* ============ DOCTOR PAGE Availability END ============ */
+
+/* ============ DOCTOR PAGE appointment ============ */
+
+.doctor-page-appointment{
+    display: none;
+}
+
+/* === PATIENTS HEADER === */
+.doctor-page-appointment .doctor-page-appointment-header {
+    display: flex;
+    align-items: center;
+}
+
+.doctor-page-appointment .doctor-page-appointment h4 {
+    font-weight: 700;
+    margin: 0;
+    font-size: 25PX;
+}
+
+/* === PATIENTS CARD === */
+.appointment-card{
+    border-radius: 13px;
+    overflow: hidden;
+    margin-top: 30px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.appointment-card .card-body, .appointment-card .appointment-table, .appointment-card .appointment-table .table{
+    padding: 0;
+    margin: 0;
+}
+
+.appointment-table .table thead tr th{
+    padding: 15px;
+    font-size: 15px;
+    font-weight:500;
+    color: #64748B;
+    background-color: #F8FAFC;
+}
+
+.appointment-table .table tbody tr td{
+    padding: 15px;
+    font-size: 14px;
+}
+/* ============ DOCTOR PAGE appointment end ============ */
+
+
+
+
+/* ============ Patient PAGE DASHBOARD ============ */
+
+.patient-page-dashboard{
+    display: none;
+}
+
+/* === HEADER === */
+.patient-page-dashboard .patient-page-dashboard-header h4 {
+    font-weight: 700;
+    margin: 0;
+}
+
+.patient-page-dashboard .patient-page-dashboard-header p {
+    color: #6B7280; 
+    margin-bottom: 20px;
+}
+
+/* === upcomming APPOINTMENTS CARD & health care tips CARD === */
+.upcomming-appointments-card, .health-care-card {
+    border-radius: 12px;
+    transition: all 0.2s;
+    padding: 10px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+.upcomming-appointments-card:hover, .health-care-card:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.upcomming-appointments-card .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.upcomming-appointments-card .appointments-list{
+    display: flex;
+}
+.upcomming-appointments-card .appointments-list .status-badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+}
+
+
+.health-care-card .card-title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.health-care-card .card-text{
+    font-size: 14px;
+    color: #4B5563;
+}
+
+.health-care-card .tops {
+    border-left: 2px solid #E2E8F0;
+    padding: 0 0 0 15px;
+    margin-bottom: 20px;
+}
+
+/* ============ Patient PAGE DASHBOARD END ============ */
+
+
+
+/* ============ Patient PAGE search doctors ============ */
+.patient-page-search-doctor{
+display: none;
+}
+
+/* header */
+.patient-page-search-doctor .patient-page-search-doctor-header h4{
+    font-weight: 700;
+    margin: 0;
+}
+
+/* === doctor CARDS === */        
+.patient-page-search-doctor .doctor-cards .card{
+    border-radius: 12px;
+    transition: all 0.2s;
+
+}
+
+.patient-page-search-doctor .doctor-cards .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.patient-page-search-doctor .doctor-cards .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 0 5px 0;
+}
+
+.patient-page-search-doctor .doctor-cards .doctor-img {
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+}
+
+
+.patient-page-search-doctor .doctor-cards p {
+margin: 0;
+}
+
+.patient-page-search-doctor .doctor-cards .available-btn {
+    border-radius: 20px;
+    background-color: #DCFCE7;
+    margin: 5px 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+.patient-page-search-doctor .doctor-cards .book-btn {
+border-radius: 10px;
+padding: 10px 20px;
+margin: 0 auto;
+display: block;
+}
+
+/* ============ Patient PAGE search doctors END ============ */
+
+/* ============ Patient PAGE book appointment ============ */
+.patient-page-book-appointment{
+display: none;
+}
+
+/* header */
+.patient-page-book-appointment .patient-page-book-appointment-header h4{
+    font-weight: 700;
+    margin: 0;
+}
+
+/* progress bar */
+.patient-page-book-appointment .progress-bar{
+    display: flex;
+    flex-direction: row;
+    background:none;
+    color: black;
+}
+.patient-page-book-appointment .progress-bar .progress-line{
+    width:40%;
+    border-bottom: 3px solid #E2E8F0;
+    margin-bottom: 22px;
+}
+
+.patient-page-book-appointment .progress-bar .complete-line{
+    border-bottom: 3px solid #16A34A;
+}
+
+.patient-page-book-appointment .progress-bar .progress-number{
+    padding: 7px 15px;
+    border-radius: 50%;
+    background-color: #E2E8F0;
+    margin: 5px;
+    font-weight: 700;
+}
+.patient-page-book-appointment .progress-bar .active{
+    background-color: #0D9488;
+    color: white;
+}
+
+.patient-page-book-appointment .progress-bar .complete{
+    background-color: #16A34A;
+    color: white;
+}
+
+/* selected doctor */
+.patient-page-book-appointment .book-appointment-process .card-body{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+.patient-page-book-appointment .book-appointment-process .card-body img{
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    margin: 0 10px;
+}
+
+.patient-page-book-appointment .book-appointment-process .card{
+    border-radius: 12px;
+    transition: all 0.3s;
+
+
+}
+
+.patient-page-book-appointment .book-appointment-process .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.book-appointment-process .available-time{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.book-appointment-process .available-time .slot-title{
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 10px 0 0;
+    padding: 5px 0;
+}
+
+.book-appointment-process .available-time .slot{
+    background-color: #F0FDFA;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.book-appointment-process .available-time .slot:hover{
+    background-color: #0D9488;
+    color: white;
+}
+
+.book-appointment-process .available-time .selected-slot{
+    background-color: #0D9488;
+    color: white;
+}
+
+/* select time */
+.patient-page-book-appointment .book-appointment-process .time-slots .slot{
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+.patient-page-book-appointment .book-appointment-process .time-slots .slot:hover{
+    background-color:#0D9488 ;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* ============ Patient PAGE book appointment END ============ */
+
+/* ============ Patient PAGE my appointment ============ */
+.patient-page-my-appointment{
+    display: none;
+}
+
+/* header */
+.patient-page-my-appointment .patient-page-my-appointment-header h4{
+    font-weight: 700;
+    margin: 0;
+}
+
+
+.patient-page-my-appointment .my-appointments .status{
+    text-align: end;
+}
+
+/* card */
+
+.patient-page-my-appointment .my-appointments .card{
+    border-radius: 12px;
+    transition: all 0.3s;
+    padding: 5px;
+
+
+}
+
+.patient-page-my-appointment .my-appointments .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.patient-page-my-appointment .my-appointments .card .button-wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.patient-page-my-appointment .my-appointments .card h5 span{
+    font-size:14px;
+}
+
+/* ============ Patient PAGE my appointment END ============ */
+
+/* ============ Patient PAGE my profile ============ */
+.patient-page-my-profile{
+    display: none;
+}
+
+/* header */
+.patient-page-my-profile .patient-page-my-profile-header h4{
+    font-weight: 700;
+    margin: 0;
+}
+
+.patient-page-my-profile .profile-card .card{
+    border-radius: 12px;
+    transition: all 0.3s;
+    padding: 10px;
+
+
+}
+
+.patient-page-my-profile .profile-card .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+
+/* ============================================== DASHBOARD STYLING END ============================================== */
+
+
+/* ============================================== AUTH PAGE STYLING ============================================== */
+
+.authPage{
+    min-height: 100vh;
+    padding: 30px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient( to top left, #F0FDF4, #EEF6FE );
+}
+
+/* ============ LOGIN CARD ============ */
+.authPage .login-card .card{
+    width: 100%;
+    padding: 35px 20px;
+    border-radius: 20px;
+    border: 2px solid #E2E8F0;
+    transition: all 0.3s ease;
+}
+.authPage .login-card .card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.authPage .login-card .card .card-title{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.authPage .login-card .card .card-subtitle{
+    font-size: 16px;
+    font-weight:400;
+    text-align: center;
+}
+
+.authPage .login-card .card .remember-forgot-block{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.authPage .login-card .card .card-link{
+    color: #6C757D;
+}
+
+.authPage .login-card .card .btn{
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+@media (max-width:576px){
+
+    .authPage .login-card .card{
+        padding:15px;
+    }
+
+    .authPage .login-card .card .remember-forgot-block{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+/* ============ LOGIN CARD END ============ */
+
+
+/* ============ REGISTER CARD ============ */
+.authPage .register-card .card{
+    width: 100%;
+    padding: 35px 20px;
+    border-radius: 20px;
+    border: 2px solid #E2E8F0;
+    transition: all 0.3s ease;
+}
+
+.authPage .register-card .card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.authPage .register-card .card .card-title{
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.authPage .register-card .card .card-subtitle{
+    font-size: 16px;
+    font-weight:400;
+    text-align: center;
+}
+
+.authPage .register-card .card .card-link{
+    color: #6C757D;
+}
+
+.authPage .register-card .card .btn{
+    padding: 10px 0;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* ============ REGISTER CARD END ============ */
+
+
+/* ============================================== AUTH PAGE STYLING END ============================================== */
+
+
+/* ============================================== NAVBAR STYLING ============================================== */
+
+.navbar-page-container{
+    background: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    
+}
+
+.navbar-brand{
+    font-weight: 700;
+    font-size: 23px;
+    color: #1A6FB5;
+}
+
+.navbar-brand span{
+    color: #0D9488;
+    font-size: 30px;
+}
+
+.navbar-page-navbar .navbar-nav{
+    margin-left: auto;
+}
+
+.navbar-page-navbar .navbar-nav .nav-link{
+    color:black;
+    font-weight: 600;
+    margin-left: 15px;  
+    font-size: 15px;
+    padding-left:15px;
+    padding-right: 15px;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+}
+
+.navbar-page-navbar .navbar-nav .nav-link:hover{
+    color:#3480BE;
+    background-color: #F0F7FF;
+}
+
+.navbar-page-navbar .navbar-nav .active{
+    color:#3480BE;
+    background-color: #F0F7FF;
+}
+
+.navbar-page-navbar .navbar-nav .login-btn{
+    background-color: #1A6FB5;
+    border-radius: 30px;
+    padding: 9px 25px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar-page-navbar .navbar-nav .login-btn:hover{
+background-color: #14578C;
+color: white;
+}
+
+
+
+/* ============================================== NAVBAR STYLING END ============================================== */
+
+
+/* ============================================== footer STYLING ============================================== */
+
+
+.footer-page{
+    background:#1F2937;
+    color:#ffffff;
+}
+
+.footer-page .footer-title{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.footer-page .footer-title span{
+    color: #0D9488;
+}
+
+.footer-page .footer-text{
+    color:#d1d5db;
+    line-height:1.8;
+    /* font-size: 14px; */
+}
+
+.footer-page .footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-page .footer-links a{
+    color:#d1d5db;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-page .footer-links a:hover{
+    color: white;
+    padding-left:6px;
+}
+
+.footer-page .footer-contact li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+    color:#d1d5db;
+}
+
+.footer-page .footer-contact i{
+    font-size:18px;
+}
+
+.footer-page .footer-line{
+    border-color:rgba(255,255,255,.15);
+    margin:0;
+}
+
+.footer-page .footer-copy{
+    color:#d1d5db;
+    font-size:15px;
+}
+
+
+/* ============================================== footer STYLING END ============================================== */
+
+/* ============================================== about STYLING ============================================== */
+
+.about-page{
+    margin-top: 70px;
+}
+
+.about-page, .team-section{
+    background-color: white;
+}
+
+.about-page .section-title{
+    font-size:30px;
+    font-weight:700;
+    color:#222;
+}
+
+.about-page .section-text{
+    font-size:19px;
+    line-height:1.8;
+    color:#303133;
+    font-weight: 300;
+}
+
+
+/*==========================
+Vision Mission Cards
+==========================*/
+
+.about-page .about-card{
+    border:1px solid #dee2e6;
+    border-radius:12px;
+    padding:20px 25px;
+    text-align:center;
+    height:100%;
+    transition:.3s;
+}
+
+.about-page .about-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.about-page .about-icon{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+.about-page .about-card h4{
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.about-page .about-card p{
+    color:#6c757d;
+    line-height:1.8;
+}
+
+
+/*==========================
+Team
+==========================*/
+
+.team-section .team-section-title{
+    font-size: 23px;
+    font-weight:700;
+    color:#222;
+}
+
+.team-section .team-card{
+    text-align:center;
+}
+
+.team-section .team-card img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+.team-section .team-card h5{
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.team-section .team-card p{
+    color:#6c757d;
+    font-size:14px;
+}
+
+
+/* ============================================== about STYLING end ============================================== */
+
+/* ============================================== contact STYLING ============================================== */
+/*=========================
+Section Title
+=========================*/
+
+.contact-section{
+    background-color: white;
+    margin-top: 70px;
+
+}
+
+.contact-section .section-title{
+    font-size:30px;
+    font-weight:700;
+    color:#222;
+}
+
+/*=========================
+Form
+=========================*/
+
+.contact-section .form-control{
+    border-radius:10px;
+    padding:12px 15px;
+    box-shadow:none;
+}
+
+.contact-section .form-control:focus{
+    border-color:#1A6FB5;
+    box-shadow:none;
+}
+
+.contact-section .btn-secondary{
+    padding:20px 25px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+/*=========================
+Contact Info
+=========================*/
+.contact-section .info-section-title{
+    font-size:25px;
+    font-weight:700;
+    color:#222;
+}
+
+.contact-section .contact-info p{
+    font-size:16px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.contact-section .contact-info i{
+    color:#0D9488;
+    font-size:16px;
+}
+
+/*=========================
+Map
+=========================*/
+
+.contact-section .map-section iframe{
+    border-radius:12px;
+}
+
+/*=========================
+Accordion
+=========================*/
+
+.contact-section .accordion-item{
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.contact-section .accordion-button{
+    font-weight:600;
+}
+
+.contact-section .accordion-button:focus{
+    box-shadow:none;
+}
+
+
+/* ============================================== home page STYLING ============================================== */
+
+.home-page{
+    background-color: white;
+    margin-top: 70px;
+
+}
+
+.home-page .hero-banner {
+    padding: 50px 0;
+    background: linear-gradient(
+        to right,
+        #EDF6FC 0%,
+        #ECF6FA 20%,
+        #EAF5F7 40%,
+        #E8F4F5 50%,
+        #E6F4F3 60%,
+        #E4F3F1 80%,
+        #E3F3F0 100%
+    );
+}
+
+.home-page .hero-banner .first-col{
+    padding-left: 20px;
+}
+
+.home-page .hero-banner .first-col h1{
+    font-weight:900;
+    font-size: 43px;
+    margin-bottom: 25px;
+}
+
+.home-page .hero-banner .first-col h1 span{
+    color: #0D9488;
+}
+
+.home-page .hero-banner .first-col p{
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding-right: 70px;
+}
+
+
+
+.home-page .hero-banner .search-wrapper{
+    background:#fff;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px;
+    gap:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+.home-page .hero-banner .search-wrapper input{
+    flex:1;
+    border:none;
+    background:transparent;
+    padding:12px 20px;
+
+}
+
+
+
+.home-page .hero-banner .search-wrapper input:focus{
+box-shadow:none;
+}
+
+.home-page .hero-banner .search-wrapper .btn{
+    border-radius:40px;
+    padding:12px 28px;
+    white-space:nowrap;
+    background:#0D9488;
+    color: white;
+    border:none;
+    transition: all 0.2s ease;
+
+}
+
+.home-page .hero-banner .search-wrapper .btn:hover{
+    background:#0F766E;
+    color: white;
+
+}
+
+.home-page .hero-banner .banner-statistics{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:40px;
+}
+
+.home-page .hero-banner .banner-statistics h4{
+    font-weight: 700;
+    color: #0D9488;
+}
+
+.home-page .hero-banner .banner-statistics p{
+    font-size: 15px;
+    color: #0D9488;
+}
+
+.home-page .hero-banner .second-col{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.home-page .hero-banner .second-col .card{
+    border: 3px solid #E2E8F0;
+    border-radius: 15px;
+    padding: 5px 10px 0 10px;
+    max-width:340px;
+    width:100%;
+    animation:floating 7s ease-in-out infinite;
+    transition:.35s;
+}
+
+.home-page .hero-banner .second-col .card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.home-page .hero-banner .second-col .first-people, .home-page .hero-banner .second-col .second-people{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.home-page .hero-banner .second-col .first-people .first-circle{
+    height: 90px;
+    width: 90px;
+    background-color: #E8F5F3;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page .hero-banner .second-col .first-people .second-circle{
+    height: 60px;
+    width: 60px;
+    background-color: #7ED6CC;
+    border-radius: 50%;
+
+}
+
+.home-page .hero-banner .second-col .first-people .first-line, .home-page .hero-banner .second-col .second-people .first-line{
+    height: 8px;
+    width: 100%;
+    background-color: #E2E8F0;
+    border-radius: 10px;
+}
+
+.home-page .hero-banner .second-col .first-people .second-line, .home-page .hero-banner .second-col .second-people .second-line{
+    height: 8px;
+    width: 80%;
+    background-color: #E2E8F0;
+    border-radius: 10px;
+
+}
+
+.home-page .hero-banner .second-col .second-people .first-circle{
+    height: 90px;
+    width: 90px;
+    background-color: #EEF6FF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-page .hero-banner .second-col .second-people .second-circle{
+    height: 60px;
+    width: 60px;
+    background-color: #84B3DA;
+    border-radius: 50%;
+}
+
+.home-page .hero-banner .second-col p{
+    margin-bottom: 0;
+}
+
+.home-page .hero-banner .second-col p span{
+    font-size: 12px;
+    background-color: #5BBE80;
+    border-radius: 20px;
+    color: white;
+    padding: 1px 5px;
+}
+
+
+
+
+/* ========================= */
+/* Featured Doctors Section  */
+/* ========================= */
+
+.home-page .featured-doctors{
+    background:#fff;
+}
+
+.home-page .featured-doctors .doctor-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.home-page .featured-doctors .doctor-link:hover{
+    color: inherit;
+}
+
+.home-page .featured-doctors .doctor-card{
+    border:1px solid #dee2e6;
+    border-radius:15px;
+    transition:.3s;
+    background:#fff;
+}
+
+.home-page .featured-doctors .doctor-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.home-page .featured-doctors .doctor-img{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #f8f9fa;
+}
+
+.home-page .featured-doctors .badge{
+    font-size:14px;
+    font-weight:500;
+    border-radius:30px;
+    background-color: #DCFCE7;
+    color: #0D9488;
+}
+
+.home-page .featured-doctors .busy-badge{
+    background-color: #FEF3C7;
+
+}
+
+.home-page .featured-doctors .btn-primary{
+    border-radius:30px;
+    background:#0D9488;
+    color: white;
+    border:none;
+    transition: all 0.2s ease;
+}
+
+.home-page .featured-doctors .btn-primary:hover{
+    background:#0F766E;
+    color: white;
+}
+
+
+/* health statistics */
+
+.home-page .healthcare-statistics{
+    background:#F8FAFC;
+}
+
+.home-page .healthcare-statistics .statistics-card{
+    border:1px solid #dee2e6;
+    border-radius:15px;
+    transition:.3s;
+    background:#fff;
+}
+
+.home-page .healthcare-statistics .statistics-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+}
+
+.home-page .healthcare-statistics .statistics-card .card-icon {
+    width: 55px;
+    height: 55px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.home-page .healthcare-statistics .statistics-card .card-icon i {
+    font-size: 25px;
+    line-height: 1;
+}
+
+
+.home-page .healthcare-statistics .statistics-card h2{
+font-weight: 800;
+}
+
+/* medical news  */
+
+.home-page .medical-news{
+    background:white;
+
+}
+
+.home-page .medical-news .section-title{
+    color:#222;
+
+}
+
+.home-page .medical-news .section-subtitle{
+    color:#6c757d;
+    font-size:18px;
+    margin-top:15px;
+
+}
+
+.home-page .medical-news .news-card{
+    border:1px solid #dee2e6;
+    border-radius:15px;
+    padding:30px;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+
+}
+
+.home-page .medical-news .news-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.home-page .medical-news .news-card h4{
+    font-size:20px;
+    font-weight:700;
+    line-height:1.5;
+    margin-bottom:15px;
+
+}
+
+.home-page .medical-news .news-card p{
+    color:#6c757d;
+    line-height:1.8;
+    flex:1;
+
+}
+
+.home-page .medical-news .news-date{
+    margin-top:25px;
+    color:#6c757d;
+    font-size:15px;
+
+}
+
+.home-page .medical-news .news-date i{
+    color:#0D9488;
+    margin-right:8px;
+
+}
+
+
+/*===================================
+Disease Section
+===================================*/
+
+.home-page .disease-section{
+    background:#F8FAFC;
+
+}
+
+.home-page .disease-section .section-subtitle{
+    color:#6c757d;
+    font-size:18px;
+    max-width:750px;
+    margin:auto;
+
+}
+
+.home-page .disease-section .disease-card{
+    border:1px solid #dee2e6;
+    border-radius:18px;
+    padding:30px;
+    transition:.35s;
+
+}
+
+.home-page .disease-section .disease-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.home-page .disease-section .disease-card h4{
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:700;
+
+}
+
+.home-page .disease-section .disease-card h6{
+    color:#1873B0;
+    margin-top:18px;
+    font-weight:600;
+
+}
+
+.home-page .disease-section .disease-card p{
+    color:#6c757d;
+    line-height:1.8;
+
+}
+
+
+/*===================================
+CTA
+===================================*/
+
+.home-page .cta-section{
+    background:linear-gradient(90deg,#1873B0 0%,#0E928B 100%);
+
+}
+
+.home-page .cta-section .cta-box{
+    padding:70px 30px;
+    color:#fff;
+
+}
+
+.home-page .cta-section .cta-box p{
+    font-size:20px;
+    margin:20px 0 35px;
+
+}
+
+.home-page .cta-section .cta-box .btn{
+    font-weight:600;
+    transition:.3s;
+    color: #1A6FB5;
+    border:none;
+    font-weight: 700;
+    font-size: 18px;
+
+}
+
+.home-page .cta-section .cta-box .btn:hover{
+    background-color: #D3D4D5;
+
+}
+
+
+/* ============================================== home STYLING end ============================================== */
+
+/* ============================================== find doctor STYLING ============================================== */
+
+.finddoctor-page{
+    margin-top: 120px;
+    margin-bottom: 100px;
+}
+
+/* header */
+.finddoctor-page .finddoctor-page-header h4{
+    font-weight: 700;
+    font-size: 30px;
+    margin: 0;
+}
+
+/* === doctor CARDS === */        
+.finddoctor-page .doctor-cards .card{
+    border-radius: 12px;
+    transition: all 0.2s;
+
+}
+
+.finddoctor-page .doctor-cards .card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.finddoctor-page .doctor-cards .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 0 5px 0;
+}
+
+.finddoctor-page .doctor-cards .doctor-img {
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+}
+
+
+.finddoctor-page .doctor-cards p {
+margin: 0;
+}
+
+.finddoctor-page .doctor-cards .available-btn {
+    border-radius: 20px;
+    background-color: #DCFCE7;
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.finddoctor-page .doctor-cards .busy-btn {
+    border-radius: 20px;
+    background-color: #FEF3C7;
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.finddoctor-page .doctor-cards .book-btn {
+border-radius: 10px;
+padding: 10px 20px;
+margin: 0 auto;
+display: block;
+}
+
+
+/* view profile */
+
+#doctor_view_profile_modal .modal-content{
+    border: none;
+    border-radius: 15px;
+}
+
+#doctor_view_profile_modal .modal-header{
+    border-bottom:1px solid #eee;
+}
+
+#doctor_view_profile_modal .modal-body p{
+    margin-bottom:12px;
+}
+
+#doctor_view_profile_modal .badge{
+    font-weight:500;
+    font-size:14px;
+}
+
+#doctor_view_profile_modal .btn-secondary{
+    border-radius:30px;
+    padding:10px 25px;
+}
+
+#doctor_view_profile_modal .border-end{
+    border-color:#eeeeee !important;
+}
+
+
+/* ============================================== find doctor STYLING end ============================================== */
+
+
+
+
+/* ============================================== RESPONSIVE MEDIA QUERIES ============================================== */
+
+
+/* ============ NAVBAR ============ */
+
+/* Mobile */
+@media (max-width: 991.98px){
+
+    .navbar-page-navbar .navbar-nav{
+        margin-left: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .navbar-page-navbar .navbar-nav .nav-item{
+        margin: 5px 0; 
+    }
+
+    .navbar-page-navbar .navbar-nav .nav-link{
+        padding: 12px 20px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+}
+
+/* ============ footer  ============ */
+
+@media(max-width:991px){
+
+    .footer-page{
+        text-align:center;
+    }
+
+    .footer-page .footer-contact li{
+        justify-content:center;
+    }
+
+}
+
+
+/* ============ SIDE BAR ============ */
+
+/* === TABLET === */
+@media (max-width: 991px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar-brand {
+        font-size: 18px;
+    }
+
+    .sidebar-nav .nav-link {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .main-content {
+
+        margin-left: 220px;
+
+    }
+
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+        box-shadow: 0 0 25px rgba(0,0,0,0.15);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 8px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar-in-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 8px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    .sidebar-toggle:hover, .sidebar-in-toggle:hover{
+        background: #F0F3F7;
+    }
+
+    .sidebar-header {
+        padding: 0 15px;
+    }
+
+    .sidebar-brand {
+        font-size: 18px;
+    }
+
+    .sidebar-nav .nav-link {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .sidebar-footer {
+        padding: 10px;
+    }
+
+    .main-content {
+
+        margin-left: 0;
+
+    }
+
+}
+
+/* === SMALL MOBILE === */
+@media (max-width: 480px) {
+
+    .sidebar {
+        width: 85%;
+        max-width: 300px;
+    }
+
+    .sidebar-nav .nav-link {
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .sidebar-nav .nav-link i {
+        font-size: 16px;
+    }
+
+    .sidebar-brand {
+        font-size: 16px;
+    }
+}
+
+/* ============ SIDE BAR END ============ */
+
+/* ============ home page ============ */
+
+/* ==== hero banner ==== */
+
+@media(max-width:991px){
+
+    .home-page .hero-banner{
+
+    padding:70px 0;
+
+    }
+
+    .home-page .hero-banner .first-col{
+
+    margin-bottom:60px;
+
+    }
+
+    .home-page .hero-banner .search-wrapper{
+
+    flex-direction:column;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    }
+
+    .home-page .hero-banner .search-wrapper input{
+
+    width:100%;
+
+    }
+
+    .home-page .hero-banner .search-wrapper button{
+
+    width:100%;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .home-page .hero-banner .first-col h1{
+
+    font-size:34px;
+
+    }
+
+    .home-page .hero-banner .first-col p{
+
+    font-size:16px;
+
+    }
+
+    .home-page .hero-banner .second-col .card{
+
+    max-width:290px;
+
+    }
+
+}
+
+/* ==== featured doctors ==== */
+
+@media (max-width:991px){
+
+    .home-page .featured-doctors .doctor-img{
+        width:110px;
+        height:110px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .home-page .featured-doctors .doctor-card{
+        padding:2rem 1rem;
+    }
+
+    .home-page .featured-doctors .doctor-img{
+        width:100px;
+        height:100px;
+    }
+
+}
+
+/* ==== news update ==== */
+
+@media(max-width:991px){
+
+.home-page .medical-news .section-title{
+
+    font-size:34px;
+
+}
+
+.home-page .medical-news .news-card{
+
+    text-align:center;
+
+}
+
+.home-page .medical-news .news-date{
+
+    text-align:center;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.home-page .medical-news .section-title{
+
+    font-size:28px;
+
+}
+
+.home-page .medical-news .section-subtitle{
+
+    font-size:16px;
+
+}
+
+.home-page .medical-news .news-card{
+
+    padding:25px;
+
+}
+
+.home-page .medical-news .news-card h4{
+
+    font-size:20px;
+
+}
+
+}
+
+/* ==== diseases and cta ==== */
+
+
+@media(max-width:991px){
+
+.home-page .disease-section .section-title{
+
+    font-size:34px;
+
+}
+
+.home-page .cta-section .cta-box h2{
+
+    font-size:32px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.home-page .disease-section .section-title{
+
+    font-size:28px;
+
+}
+
+.home-page .disease-section .section-subtitle{
+
+    font-size:16px;
+
+}
+
+.home-page .cta-section .cta-box{
+
+    padding:50px 20px;
+
+}
+
+.home-page .cta-section .cta-box h2{
+
+    font-size:28px;
+
+}
+
+.home-page .cta-section .cta-box p{
+
+    font-size:17px;
+
+}
+
+}
+
+
+
+/*==========================
+about
+==========================*/
+
+@media(max-width:991px){
+
+.about-page .section-title{
+
+    font-size:34px;
+
+}
+
+.team-section .team-card img{
+
+    width:150px;
+    height:150px;
+
+}
+
+}
+
+
+@media(max-width:576px){
+
+.about-page .section-title{
+
+    font-size:28px;
+
+}
+
+.about-page .section-text{
+
+    font-size:16px;
+
+}
+
+.about-page .about-card{
+
+    padding:30px 20px;
+
+}
+
+}
+
+/*=========================
+contact
+=========================*/
+
+@media(max-width:991px){
+
+.contact-section .section-title{
+
+    font-size:32px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.contact-section .section-title{
+
+    font-size:28px;
+
+}
+
+.contact-section .contact-info p{
+
+    font-size:16px;
+
+}
+
+}
+
+
+
+
+
+
