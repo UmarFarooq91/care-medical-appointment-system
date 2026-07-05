@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.png" alt="CARE Medical Banner">
+</p>
+
 # 🏥 CARE Medical Appointment System
 
 A modern and responsive healthcare management system developed using PHP and MySQL. The system allows patients to search doctors, book appointments, doctors to manage their profiles and availability, and administrators to manage the complete healthcare platform.
